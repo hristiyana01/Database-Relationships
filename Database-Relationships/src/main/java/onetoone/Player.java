@@ -42,4 +42,12 @@ public class Player {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public PlayerProfile getPlayerProfile() {
+        return playerProfile;
+    }
+
+    public void setPlayerProfile(PlayerProfile playerProfile) {
+        this.playerProfile = playerProfile;
+    }
 }
