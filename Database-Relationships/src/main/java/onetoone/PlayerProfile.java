@@ -16,6 +16,10 @@ public class PlayerProfile {
         this.Id = id;
         this.twitter = twitter;
     }
+    public PlayerProfile(String twitter) {
+        super();
+        this.twitter = twitter;
+    }
     public PlayerProfile() {
 
     }
