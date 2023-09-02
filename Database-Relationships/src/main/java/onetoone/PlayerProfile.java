@@ -1,9 +1,6 @@
 package onetoone;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
@@ -12,6 +9,17 @@ public class PlayerProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     private String twitter;
+    @OneToOne(mappedBy = "playerProfile")
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public PlayerProfile(int id, String twitter) {
         this.Id = id;
         this.twitter = twitter;
@@ -44,7 +52,7 @@ public class PlayerProfile {
     public String toString() {
         return "PlayerProfile{" +
                 "Id=" + Id +
-                ", twitter='" + twitter + '\'' +
+                ", twitter='" + twitter + ", Player='" + player + '\'' +
                 '}';
     }
 }
