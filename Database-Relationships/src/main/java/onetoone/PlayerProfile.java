@@ -1,5 +1,6 @@
 package onetoone;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
@@ -10,6 +11,7 @@ public class PlayerProfile {
     private int Id;
     private String twitter;
     @OneToOne(mappedBy = "playerProfile")
+    @JsonBackReference
     private Player player;
 
     public Player getPlayer() {
