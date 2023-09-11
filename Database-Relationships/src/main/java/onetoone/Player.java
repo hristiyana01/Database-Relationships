@@ -9,7 +9,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     @JsonManagedReference
     private PlayerProfile playerProfile;
