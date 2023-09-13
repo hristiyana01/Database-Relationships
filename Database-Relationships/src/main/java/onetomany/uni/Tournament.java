@@ -12,7 +12,7 @@ public class Tournament {
     private int id;
     private String name;
     private String location;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval=true)
     @JoinColumn(name = "tournament_id")
     private List<Registration> registrations = new ArrayList<>();
 

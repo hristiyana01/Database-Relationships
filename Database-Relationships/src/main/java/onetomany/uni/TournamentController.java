@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/tournaments")
 public class TournamentController {
@@ -16,7 +18,7 @@ public class TournamentController {
     public Tournament addRegistration(@PathVariable int id, @PathVariable int registration_id) {
         Registration registration = registrationService.getRegistration(registration_id);
         System.out.println(registration);
-        return registrationService.addRegistration(id, registration_id);
+        return tournamentService.addRegistration(id, registration);
     }
     @GetMapping
     public List<Tournament> allTournaments() {
@@ -32,18 +34,11 @@ public class TournamentController {
         return tournamentService.addTournament(tournament);
     }
 
-    @PutMapping("/{id}/registrations/{registration_id}")
-    public Tournament addRegistration(@PathVariable int id, @PathVariable int registration_id) {
-        Registration registration = registrationService.getRegistration(registration_id);
-        System.out.println(registration);
-        return registrationService.addRegistration(registration_id);
-    }
-
     @PutMapping("/{id}/remove_registrations/{registration_id}")
     public Tournament removeRegistration(@PathVariable int id, @PathVariable int registration_id) {
         Registration registration = registrationService.getRegistration(registration_id);
         System.out.println(registration);
-        return registrationService.removeRegistration( registration);
+        return tournamentService.removeRegistration(id, registration);
     }
 
     @DeleteMapping("/{id}")

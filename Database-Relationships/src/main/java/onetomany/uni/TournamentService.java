@@ -9,10 +9,6 @@ import java.util.List;
 public class TournamentService {
     @Autowired
     TournamentRepository repo;
-    public Tournament addRegistration(int id, Registration registration) {
-        Tournament tournament = repo.findById(id).get();
-        tournament.addRegistration(registration);
-        return repo.save(tournament);
 
         public List<Tournament> allTournaments() {
             return repo.findAll();
@@ -41,6 +37,5 @@ public class TournamentService {
             Tournament tournament = repo.findById(id).get();
             tournament.removeRegistration(registration);
             return repo.save(tournament);
-        }
     }
 }
